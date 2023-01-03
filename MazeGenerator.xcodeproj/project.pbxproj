@@ -13,6 +13,8 @@
 		94651DA02963834000773DB0 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94651D9C2963834000773DB0 /* SFML.framework */; };
 		94651DA12963834000773DB0 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94651D9D2963834000773DB0 /* sfml-window.framework */; };
 		94651DA62963840B00773DB0 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94651DA42963840B00773DB0 /* Application.cpp */; };
+		94720C8C2964A40A0097A2E4 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94720C8A2964A40A0097A2E4 /* Cell.cpp */; };
+		94720C8F2964A7850097A2E4 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94720C8D2964A7850097A2E4 /* Grid.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,10 @@
 		94651DA2296383A000773DB0 /* MazeGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MazeGenerator.entitlements; sourceTree = "<group>"; };
 		94651DA42963840B00773DB0 /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Application.cpp; path = MazeGenerator/Application.cpp; sourceTree = SOURCE_ROOT; };
 		94651DA7296384A600773DB0 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		94720C8A2964A40A0097A2E4 /* Cell.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cell.cpp; sourceTree = "<group>"; };
+		94720C8B2964A40A0097A2E4 /* Cell.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Cell.hpp; sourceTree = "<group>"; };
+		94720C8D2964A7850097A2E4 /* Grid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
+		94720C8E2964A7850097A2E4 /* Grid.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Grid.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,8 @@
 				94651DA2296383A000773DB0 /* MazeGenerator.entitlements */,
 				94651DA42963840B00773DB0 /* Application.cpp */,
 				94651D892963818600773DB0 /* main.cpp */,
+				94720C8A2964A40A0097A2E4 /* Cell.cpp */,
+				94720C8D2964A7850097A2E4 /* Grid.cpp */,
 			);
 			path = MazeGenerator;
 			sourceTree = "<group>";
@@ -84,6 +92,8 @@
 		94651DA3296383C100773DB0 /* HeaderFiles */ = {
 			isa = PBXGroup;
 			children = (
+				94720C8E2964A7850097A2E4 /* Grid.hpp */,
+				94720C8B2964A40A0097A2E4 /* Cell.hpp */,
 				94651DA7296384A600773DB0 /* Application.h */,
 			);
 			path = HeaderFiles;
@@ -179,8 +189,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94720C8C2964A40A0097A2E4 /* Cell.cpp in Sources */,
 				94651DA62963840B00773DB0 /* Application.cpp in Sources */,
 				94651D8A2963818600773DB0 /* main.cpp in Sources */,
+				94720C8F2964A7850097A2E4 /* Grid.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

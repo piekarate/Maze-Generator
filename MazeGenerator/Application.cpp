@@ -2,7 +2,7 @@
 
 void Application::initVariables()
 {
-    
+//    this->grid = Grid();
 }
 
 void Application::initWindow()
@@ -48,7 +48,8 @@ void Application::update()
     this->pollEvents();
     
     // Update objects
-
+    
+    this->grid.update();
 }
 
 void Application::render()
@@ -56,7 +57,7 @@ void Application::render()
     this->window->clear(sf::Color(128,128,128));
     
     // Render objects
-   
+    this->grid.render(this->window);
     
     this->window->display();
 }

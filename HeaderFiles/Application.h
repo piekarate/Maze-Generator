@@ -1,8 +1,6 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
+#include "Grid.hpp"
 
 class Application
 {
@@ -13,7 +11,7 @@ private:
     
     sf::Event event;
 
-    
+    Grid grid;
     // Initializer Functions
     
     void initVariables();
