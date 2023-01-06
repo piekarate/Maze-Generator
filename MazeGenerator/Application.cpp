@@ -3,13 +3,14 @@
 void Application::initVariables()
 {
 //    this->grid = Grid();
+    
 }
 
 void Application::initWindow()
 {
     this->videoMode = sf::VideoMode(1500, 1500);
     this->window = new sf::RenderWindow(this->videoMode, "Maze Generator", sf::Style::Titlebar | sf::Style::Close);
-    this->window->setFramerateLimit(60);
+    this->window->setFramerateLimit(2);
 }
 
 Application::Application()
@@ -54,7 +55,7 @@ void Application::update()
 
 void Application::render()
 {
-    this->window->clear(sf::Color(128,128,128));
+    this->window->clear(sf::Color::Black);
     
     // Render objects
     this->grid.render(this->window);

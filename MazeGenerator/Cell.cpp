@@ -6,6 +6,7 @@ void Cell::initVariables(float x, float y)
     this->row = x;
     this->col = y;
     this->size = 150;
+    this->visited = false;
 }
 
 void Cell::generatePosition()
@@ -24,6 +25,67 @@ Cell::Cell(float x, float y)
 Cell::~Cell()
 {
     
+}
+
+int Cell::index(int j, int i)
+{
+    int cols, rows = 10;
+    if (i < 0 || j < 0 || i > cols-1 || j > rows-1)
+    {
+        return -1;
+    }
+    
+    return j + i * 10;
+}
+
+int Cell::checkNeighbours(std::vector<Cell> grid)
+{
+    std::vector<int> neighbors;
+    try {
+        Cell top = grid.at(this->index(this->row, this->col-1));
+        
+        if (!top.visited)
+        {
+            neighbors.push_back(this->index(this->row, this->col-1));
+        }
+    } catch (...) { std::cout << "Top Problem" << std::endl; }
+    
+    try {
+        Cell right = grid.at(this->index(this->row+1, this->col));
+        
+        if (!right.visited)
+        {
+            neighbors.push_back(this->index(this->row+1, this->col));
+        }
+    } catch (...) { std::cout << "Right Problem" << std::endl; }
+
+    try {
+        Cell bottom = grid.at(this->index(this->row, this->col+1));
+        
+        if (!bottom.visited)
+        {
+            neighbors.push_back(this->index(this->row, this->col+1));
+        }
+    } catch (...) { std::cout << "Bottom Problem" << std::endl; }
+    
+    try {
+        Cell left = grid.at(this->index(this->row-1, this->col));
+        
+        if (!left.visited)
+        {
+            neighbors.push_back(this->index(this->row-1, this->col));
+        }
+    } catch (...) { std::cout << "Left Problem" << std::endl; }
+    
+    if (neighbors.size() > 0)
+    {
+        int randomCell = rand() % neighbors.size();
+        return neighbors.at(randomCell);
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 void Cell::update()
@@ -57,9 +119,21 @@ void Cell::update()
         walls.push_back(leftX);
         walls.push_back(leftY);
     }
+//    for (int i = 0; i < 4; i++)
+//    {
+//        std::cout << this->isWall[i] << std::endl;
+//    }
+    if (this->visited == true)
+    {
+
+        this->cellRectangle.setPosition(this->x, this->y);
+        this->cellRectangle.setSize(sf::Vector2f(this->size, this->size));
+        this->cellRectangle.setFillColor(sf::Color(255, 0, 255, 100));
+    }
 }
 
 void Cell::render(sf::RenderTarget *target)
 {
     target->draw(&walls[0], walls.size(), sf::Lines);
+    target->draw(this->cellRectangle);
 }

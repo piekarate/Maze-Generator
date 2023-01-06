@@ -12,6 +12,7 @@ private:
     int size;
     
     std::vector<Cell> grid;
+    int current;
     
     void initVariables();
     void initGrid();

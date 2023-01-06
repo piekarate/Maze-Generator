@@ -5,6 +5,8 @@
 #include <SFML/System.hpp>
 
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 
 class Cell
 {
@@ -14,9 +16,8 @@ private:
     
     int x, y;
     
-    bool isWall [4] = {true, true, true, true};
-    
     std::vector<sf::Vertex> walls;
+    sf::RectangleShape cellRectangle;
     
     void initVariables(float x, float y);
     void generatePosition();
@@ -26,7 +27,14 @@ public:
     Cell(float x, float y);
     ~Cell();
     
+    bool visited;
     
+    int checkNeighbours(std::vector<Cell> grid);
+    int index(int j, int i);
+    
+    int getRow() {return this->row;}
+    int getCol() {return this->col;}
+    bool isWall [4] = {true, true, true, true};
     
     void update();
     void render(sf::RenderTarget *target);
