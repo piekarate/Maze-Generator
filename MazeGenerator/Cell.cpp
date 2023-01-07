@@ -5,7 +5,7 @@ void Cell::initVariables(float x, float y)
 {
     this->row = x;
     this->col = y;
-    this->size = 150;
+    this->size = 20;
     this->visited = false;
 }
 
@@ -29,13 +29,13 @@ Cell::~Cell()
 
 int Cell::index(int j, int i)
 {
-    int cols, rows = 10;
+    int cols, rows = 75;
     if (i < 0 || j < 0 || i > cols-1 || j > rows-1)
     {
         return -1;
     }
     
-    return j + i * 10;
+    return j + i * 75;
 }
 
 int Cell::checkNeighbours(std::vector<Cell> grid)
@@ -119,16 +119,12 @@ void Cell::update()
         walls.push_back(leftX);
         walls.push_back(leftY);
     }
-//    for (int i = 0; i < 4; i++)
-//    {
-//        std::cout << this->isWall[i] << std::endl;
-//    }
     if (this->visited == true)
     {
 
         this->cellRectangle.setPosition(this->x, this->y);
         this->cellRectangle.setSize(sf::Vector2f(this->size, this->size));
-        this->cellRectangle.setFillColor(sf::Color(255, 0, 255, 100));
+        this->cellRectangle.setFillColor(sf::Color(0, 255, 255, 100));
     }
 }
 

@@ -12,6 +12,7 @@ private:
     int size;
     
     std::vector<Cell> grid;
+    std::vector<int> stack;
     int current;
     
     void initVariables();

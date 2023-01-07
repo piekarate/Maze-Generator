@@ -2,7 +2,7 @@
 
 void Grid::initVariables()
 {
-    this->size = 150;
+    this->size = 20;
     this->rows = (int) 1500/this->size;
     this->cols = (int) 1500/this->size;
     
@@ -49,6 +49,8 @@ void Grid::update()
     {
         this->grid.at(next).visited = true;
         
+        this->stack.push_back(this->current);
+        
         int x = this->grid.at(this->current).getRow() - this->grid.at(next).getRow();
         if (x == 1) {
             this->grid.at(this->current).isWall[3] = false;
@@ -69,6 +71,10 @@ void Grid::update()
         }
         
         this->current = next;
+    } else if (this->stack.size() > 0)
+    {
+        this->current = this->stack.back();
+        this->stack.pop_back();
     }
     
     

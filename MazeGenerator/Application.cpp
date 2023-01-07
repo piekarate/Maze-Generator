@@ -10,7 +10,7 @@ void Application::initWindow()
 {
     this->videoMode = sf::VideoMode(1500, 1500);
     this->window = new sf::RenderWindow(this->videoMode, "Maze Generator", sf::Style::Titlebar | sf::Style::Close);
-    this->window->setFramerateLimit(2);
+    this->window->setFramerateLimit(60);
 }
 
 Application::Application()
